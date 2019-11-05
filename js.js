@@ -22,5 +22,12 @@ var init = function() {
     if (seconds.toString().length === 1) {
         seconds = '0' + seconds.toString();
     }
-    $('#clock').text(days +' : ' + hours + ' : ' + minutes + ' : ' + seconds)
+    if (timeRemaining <= 0) {
+        $('#clock').text('00 : 00 : 00 : 00');
+        clearInterval(init);
+    }
+    else {
+        $('#clock').text(days +' : ' + hours + ' : ' + minutes + ' : ' + seconds)
+    }
+    
 }
